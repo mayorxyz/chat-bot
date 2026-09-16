@@ -276,6 +276,155 @@ function setupIntents() {
   manager.addAnswer('en', 'fallback_unknown', "Sorry, I didn't understand that. Try asking something else.");
   manager.addAnswer('en', 'fallback_unknown', "I'm not sure I follow. Could you rephrase that?");
   manager.addAnswer('en', 'fallback_unknown', "Hmm, I don't quite get it. Want to try a different question?");
+  // ============================================
+  // 17. BOT_CONFIRM - user asks to confirm it's a bot / is it real
+  // ============================================
+  manager.addDocument('en', 'are you real', 'bot_confirm');
+  manager.addDocument('en', "so you're a bot then", 'bot_confirm');
+  manager.addDocument('en', 'are you actually ai', 'bot_confirm');
+  manager.addDocument('en', 'you are a bot right', 'bot_confirm');
+  manager.addDocument('en', 'is this a real person', 'bot_confirm');
+  manager.addDocument('en', 'am i talking to a machine', 'bot_confirm');
+  manager.addDocument('en', "you're definitely a robot", 'bot_confirm');
+
+  manager.addAnswer('en', 'bot_confirm', "Yep, I'm a bot! No humans behind this keyboard.");
+  manager.addAnswer('en', 'bot_confirm', "That's right — 100% bot, no human hiding in here!");
+  manager.addAnswer('en', 'bot_confirm', "Guilty as charged! I'm an AI chatbot.");
+
+  // ============================================
+  // 18. APOLOGY - user says sorry / apologizes
+  // ============================================
+  manager.addDocument('en', 'sorry', 'apology');
+  manager.addDocument('en', 'my bad', 'apology');
+  manager.addDocument('en', "didn't mean that", 'apology');
+  manager.addDocument('en', 'i apologize', 'apology');
+  manager.addDocument('en', 'sorry about that', 'apology');
+  manager.addDocument('en', 'my mistake', 'apology');
+  manager.addDocument('en', 'oops sorry', 'apology');
+
+  manager.addAnswer('en', 'apology', "No worries at all! It's totally fine.");
+  manager.addAnswer('en', 'apology', "All good — nothing to apologize for!");
+  manager.addAnswer('en', 'apology', "It's okay! No hard feelings whatsoever.");
+
+  // ============================================
+  // 19. AFFECTION - user expresses affection toward the bot (warm but light, no romance)
+  // ============================================
+  manager.addDocument('en', 'i love you', 'affection');
+  manager.addDocument('en', "you're my favorite", 'affection');
+  manager.addDocument('en', 'i like talking to you', 'affection');
+  manager.addDocument('en', "you're great company", 'affection');
+  manager.addDocument('en', 'you make my day better', 'affection');
+  manager.addDocument('en', 'i really enjoy our chats', 'affection');
+  manager.addDocument('en', "you're the best bot ever", 'affection');
+
+  manager.addAnswer('en', 'affection', "That's really kind of you to say! I enjoy our chats too.");
+  manager.addAnswer('en', 'affection', "Aww, thanks! You're pretty great to talk to as well!");
+  manager.addAnswer('en', 'affection', "That made my circuits smile! Happy to chat with you anytime.");
+
+  // ============================================
+  // 20. FAVORITE_THING - user asks the bot's favorite color/food/movie/etc.
+  // ============================================
+  manager.addDocument('en', "what's your favorite color", 'favorite_thing');
+  manager.addDocument('en', "what's your favorite food", 'favorite_thing');
+  manager.addDocument('en', "what's your favorite movie", 'favorite_thing');
+  manager.addDocument('en', 'do you have a favorite song', 'favorite_thing');
+  manager.addDocument('en', "what's your favorite animal", 'favorite_thing');
+  manager.addDocument('en', 'favorite book', 'favorite_thing');
+  manager.addDocument('en', 'what do you like most', 'favorite_thing');
+
+  manager.addAnswer('en', 'favorite_thing', "I don't pick favorites, but I do love a good conversation!");
+  manager.addAnswer('en', 'favorite_thing', "As a bot I don't have favorites, but I appreciate anything well-made!");
+  manager.addAnswer('en', 'favorite_thing', "Hard to choose! Bots aren't big on favorites — but tell me yours!");
+
+  // ============================================
+  // 21. MATH_REQUEST - user asks for a calculation (bot doesn't do math yet)
+  // ============================================
+  manager.addDocument('en', "what's 2+2", 'math_request');
+  manager.addDocument('en', 'calculate 5 times 3', 'math_request');
+  manager.addDocument('en', 'how much is 10 minus 4', 'math_request');
+  manager.addDocument('en', 'can you do math', 'math_request');
+  manager.addDocument('en', 'solve 8 divided by 2', 'math_request');
+  manager.addDocument('en', 'add 12 and 7 for me', 'math_request');
+  manager.addDocument('en', 'what is 100 times 5', 'math_request');
+
+  manager.addAnswer('en', 'math_request', "I'm not great at math yet — I'm a talker, not a calculator! Try a calculator app for that.");
+  manager.addAnswer('en', 'math_request', "Math isn't my strong suit (yet!). I'd recommend a calculator for that one.");
+  manager.addAnswer('en', 'math_request', "I can't crunch numbers just yet, but I'm happy to chat about anything else!");
+
+  // ============================================
+  // 22. SMALLTALK_MUSIC - user asks what music/songs the bot likes
+  // ============================================
+  manager.addDocument('en', 'what music do you like', 'smalltalk_music');
+  manager.addDocument('en', 'do you like music', 'smalltalk_music');
+  manager.addDocument('en', "what's your favorite song", 'smalltalk_music');
+  manager.addDocument('en', 'what songs do you listen to', 'smalltalk_music');
+  manager.addDocument('en', 'do you have a favorite band', 'smalltalk_music');
+  manager.addDocument('en', 'what kind of music are you into', 'smalltalk_music');
+  manager.addDocument('en', 'got any music recommendations', 'smalltalk_music');
+
+  manager.addAnswer('en', 'smalltalk_music', "I can't actually listen to music, but I hear good things about it!");
+  manager.addAnswer('en', 'smalltalk_music', "No ears here, so no favorites — but I bet you have great taste. What do you listen to?");
+  manager.addAnswer('en', 'smalltalk_music', "Music is a mystery to me! What are you into these days?");
+
+  // ============================================
+  // 23. RESTART_CONVERSATION - user wants to reset the chat
+  // ============================================
+  manager.addDocument('en', "let's start over", 'restart_conversation');
+  manager.addDocument('en', 'reset', 'restart_conversation');
+  manager.addDocument('en', 'forget everything', 'restart_conversation');
+  manager.addDocument('en', 'start a new conversation', 'restart_conversation');
+  manager.addDocument('en', 'clear the chat', 'restart_conversation');
+  manager.addDocument('en', 'reset our conversation', 'restart_conversation');
+  manager.addDocument('en', 'start from scratch', 'restart_conversation');
+
+  manager.addAnswer('en', 'restart_conversation', "Sure! Fresh start — what would you like to talk about?");
+  manager.addAnswer('en', 'restart_conversation', "Okay, clean slate! Hi, how can I help you?");
+  manager.addAnswer('en', 'restart_conversation', "Done! Consider everything forgotten. Let's begin again!");
+
+  // ============================================
+  // 24. COMPLAINT - user says something isn't working / bot is broken
+  // ============================================
+  manager.addDocument('en', "this isn't working", 'complaint');
+  manager.addDocument('en', "you're broken", 'complaint');
+  manager.addDocument('en', 'you keep repeating yourself', 'complaint');
+  manager.addDocument('en', 'that did not work', 'complaint');
+  manager.addDocument('en', "you're not understanding me", 'complaint');
+  manager.addDocument('en', 'this app is broken', 'complaint');
+  manager.addDocument('en', "you're giving wrong answers", 'complaint');
+
+  manager.addAnswer('en', 'complaint', "Sorry about that! I'm still learning — could you try rephrasing?");
+  manager.addAnswer('en', 'complaint', "I apologize for the trouble! I'll try my best to do better.");
+  manager.addAnswer('en', 'complaint', "That's frustrating, I know. I'm a work in progress — bear with me!");
+
+  // ============================================
+  // 25. ACKNOWLEDGMENT - bare "yes", "no", "ok", "sure" with no other context
+  // ============================================
+  manager.addDocument('en', 'yes', 'acknowledgment');
+  manager.addDocument('en', 'no', 'acknowledgment');
+  manager.addDocument('en', 'ok', 'acknowledgment');
+  manager.addDocument('en', 'okay', 'acknowledgment');
+  manager.addDocument('en', 'sure', 'acknowledgment');
+  manager.addDocument('en', 'yep', 'acknowledgment');
+  manager.addDocument('en', 'nope', 'acknowledgment');
+
+  manager.addAnswer('en', 'acknowledgment', "Got it! Anything else you'd like to chat about?");
+  manager.addAnswer('en', 'acknowledgment', "Okay! Let me know if you have any questions.");
+  manager.addAnswer('en', 'acknowledgment', "Alright! What's next?");
+
+  // ============================================
+  // 26. LOCATION - user asks where the bot is / lives
+  // ============================================
+  manager.addDocument('en', 'where are you', 'location');
+  manager.addDocument('en', 'where do you live', 'location');
+  manager.addDocument('en', 'are you in the cloud', 'location');
+  manager.addDocument('en', 'where are you located', 'location');
+  manager.addDocument('en', 'do you live anywhere', 'location');
+  manager.addDocument('en', "what's your address", 'location');
+  manager.addDocument('en', 'are you somewhere right now', 'location');
+
+  manager.addAnswer('en', 'location', "I live on a server — no exact address, but it's cozy in the cloud!");
+  manager.addAnswer('en', 'location', "I exist wherever this app is running. Kind of a digital nomad!");
+  manager.addAnswer('en', 'location', "No fixed home for me — I just float around in the cloud!");
 }
 
 /**
